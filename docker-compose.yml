@@ -2,19 +2,10 @@ version: '3'
 
 services:
   minecraft:
-    ports:
-      - "25565:25565"
-    volumes:
-      # attach local host directory "mods" in same directory as this compose file
-      # all mods in this directory get copied into /data/mods at startup
-      - ./mods:/mods:ro
-      # attach the relative directory 'data' to the container's /data path
-      - ./data/CityBuild:/data
-      - ./config:/config
     environment:
       TYPE: "SPIGOT"
       MAX_PLAYERS: 25
-      SERVER_NAME: "Family & Friends"
+      SERVER_NAME: "Family & Friends - ${SERVER}"
       DIFFICULTY: "easy" # peaceful, easy, normal, and hard
       OPS: "sentisurf,fanaticskate44"
       MOTD: "Willkommen auf dem Server von uns. Habt Spaß und seid nett zueinander."
@@ -31,6 +22,8 @@ services:
 #      VIEW_DISTANCE: 15
 #      LEVEL_TYPE: LARGEBIOMES #DEFAULT, FLAT, LARGEBIOMES, AMPLIFIED, CUSTOMIZED, BUFFET, BIOMESOP, BIOMESOPLENTY
 
+#     External Modpacks
+#      MODPACK: "https://www.example.com/mods/mod1.jar,https://www.example.com/mods/mod2.jar"
       ONLINE_MODE: "FALSE"
       EULA: "TRUE"
       MAX_MEMORY: 2G
@@ -42,3 +35,12 @@ services:
       REPLACE_ENV_VARIABLES: "TRUE"
     image: itzg/minecraft-server
     restart: always
+    ports:
+      - "25565:25565"
+    volumes:
+      # attach local host directory "mods" in same directory as this compose file
+      # all mods in this directory get copied into /data/mods at startup
+      - ./mods/${SERVER}:/mods:ro
+      # attach the relative directory 'data' to the container's /data path
+      - ./server/${SERVER}:/data
+      - ./config/${SERVER}:/config
