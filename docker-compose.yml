@@ -9,7 +9,7 @@ services:
       DIFFICULTY: "easy" # peaceful, easy, normal, and hard
       OPS: "sentisurf,FanaticAssassin"
       MOTD: "Willkommen auf dem Server von uns. Habt Spaß und seid nett zueinander."
-      PVP: "FALSE"
+      PVP: "TRUE"
       ALLOW_FLIGHT: "TRUE"
 #      MODE: "adventure" # creative, survival, adventure, spectator
 #      SPAWN_NPCS: "TRUE"
@@ -24,6 +24,7 @@ services:
 
 #     External Modpacks
 #      MODPACK: "https://www.example.com/mods/mod1.jar,https://www.example.com/mods/mod2.jar"
+      OVERRIDE_OPS: "TRUE"
       ONLINE_MODE: "FALSE"
       EULA: "TRUE"
       MAX_MEMORY: 2G
