@@ -7,7 +7,7 @@ services:
       MAX_PLAYERS: 25
       SERVER_NAME: "Family & Friends - ${SERVER}"
       DIFFICULTY: "easy" # peaceful, easy, normal, and hard
-      OPS: "sentisurf,fanaticskate44"
+      OPS: "sentisurf,FanaticAssassin"
       MOTD: "Willkommen auf dem Server von uns. Habt Spaß und seid nett zueinander."
       PVP: "FALSE"
       ALLOW_FLIGHT: "TRUE"
