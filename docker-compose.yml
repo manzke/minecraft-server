@@ -1,0 +1,44 @@
+version: '3'
+
+services:
+  minecraft:
+    ports:
+      - "25565:25565"
+    volumes:
+      # attach local host directory "mods" in same directory as this compose file
+      # all mods in this directory get copied into /data/mods at startup
+      - ./mods:/mods:ro
+      # attach the relative directory 'data' to the container's /data path
+      - ./data/CityBuild:/data
+      - ./config:/config
+    environment:
+      TYPE: "SPIGOT"
+      MAX_PLAYERS: 25
+      SERVER_NAME: "Family & Friends"
+      DIFFICULTY: "easy" # peaceful, easy, normal, and hard
+      OPS: "sentisurf,fanaticskate44"
+      MOTD: "Willkommen auf dem Server von uns. Habt Spaß und seid nett zueinander."
+      PVP: "FALSE"
+      ALLOW_FLIGHT: "TRUE"
+#      MODE: "adventure" # creative, survival, adventure, spectator
+#      SPAWN_NPCS: "TRUE"
+#      SPAWN_MONSTERS: "TRUE"
+#      MAX_BUILD_HEIGHT: 256
+#      MAX_WORLD_SIZE: 10000
+#      ALLOW_NETHER=true
+#      ENABLE_COMMAND_BLOCK=true
+#      GENERATE_STRUCTURES=true
+#      VIEW_DISTANCE: 15
+#      LEVEL_TYPE: LARGEBIOMES #DEFAULT, FLAT, LARGEBIOMES, AMPLIFIED, CUSTOMIZED, BUFFET, BIOMESOP, BIOMESOPLENTY
+
+      ONLINE_MODE: "FALSE"
+      EULA: "TRUE"
+      MAX_MEMORY: 2G
+      CONSOLE: "FALSE"
+      ENABLE_AUTOPAUSE: "TRUE"
+      MAX_TICK_TIME: "-1"
+      OVERRIDE_SERVER_PROPERTIES: "TRUE"
+      COPY_CONFIG_DEST: "/data"
+      REPLACE_ENV_VARIABLES: "TRUE"
+    image: itzg/minecraft-server
+    restart: always
