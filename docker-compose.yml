@@ -32,7 +32,7 @@ services:
       CONSOLE: "FALSE"
       ENABLE_AUTOPAUSE: "TRUE"
       MAX_TICK_TIME: "-1"
-      OVERRIDE_SERVER_PROPERTIES: "TRUE"
+#      OVERRIDE_SERVER_PROPERTIES: "TRUE"
       COPY_CONFIG_DEST: "/data"
       REPLACE_ENV_VARIABLES: "TRUE"
     image: itzg/minecraft-server
