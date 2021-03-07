@@ -24,7 +24,6 @@ services:
 #      LEVEL_TYPE: LARGEBIOMES #DEFAULT, FLAT, LARGEBIOMES, AMPLIFIED, CUSTOMIZED, BUFFET, BIOMESOP, BIOMESOPLENTY
 
 #     External Modpacks
-#      MODPACK: "https://www.example.com/mods/mod1.jar,https://www.example.com/mods/mod2.jar"
 #      OVERRIDE_OPS: "TRUE"
       ONLINE_MODE: "TRUE"
       EULA: "TRUE"
@@ -42,7 +41,7 @@ services:
     volumes:
       # attach local host directory "mods" in same directory as this compose file
       # all mods in this directory get copied into /data/mods at startup
-      - ./mods/${SERVER}:/mods:ro
+      - ./plugins/${SERVER}:/plugins:ro
       # attach the relative directory 'data' to the container's /data path
       - ./server/${SERVER}:/data
       - ./config/${SERVER}:/config
